@@ -1,5 +1,5 @@
 async function getData(){
-    fetch('./data.json')
+    fetch('./Data.json')
         .then( response => response.json()) 
         .then(data => drawDiagrams(data))
 }
