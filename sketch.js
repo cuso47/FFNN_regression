@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', getData);
-
 async function getData(){
     fetch('./data.json')
         .then( response => response.json()) 
@@ -178,3 +176,5 @@ function drawDiagram(series1, series2, seriesTag1, seriesTag2, drawArea){
         }
     );
 }
+
+getData();
