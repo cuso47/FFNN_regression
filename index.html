@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Import TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <!-- Import tfjs-vis -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.5.1/dist/tfjs-vis.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>Regression mit FFNN</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <section class="text-center container text-bg-secondary mb-1 fixed-top">
+        <div class="row">
+          <div class=" col-md-8 mx-auto">
+            <h1 class="fw-light">EA 2: Regression mit FFNN</h1>
+          </div>
+        </div>        
+      </section>
+      <section class="text-center container text-bg-secondary mt-5 p-2 pt-4">
+        <div class="container text-center" id="diagramArea">
+          <div class="row py-2" name="diagramRow">
+            <div class="col text-bg-light mx-3"name="diagramCol">
+              <div class="my-3">
+                <h4>Hello</h4>
+              </div>
+              <div name="dia"></div>
+              <div>Column</div>
+            </div>
+            <div class="col text-bg-light" name="diagramCol">
+              <div class="my-3">
+                <h4>Hello</h4>
+              </div>
+              <div name="dia"></div>
+              <div class="mb-2" >Column</div>
+            </div>
+          </div> 
+        </div>         
+      </section>
+      <section class="text-center container text-bg-secondary mt-1 p-2">       
+          <h3 class="fw-light">Diskussion</h3>
+          <div class="text-start text-break mx-5">
+            <p>  
+                Für das Training der Modelle und der dargestellten Ergebnisse wurden letztendlich die in der Aufgabenstellung vorgegebenen Parameter genutzt. Für ein gutes Testergebnis bei den nicht verrauschten Daten wurden 400 Epochen verwendet. Eine merkliche Verbesserung durch eine höhere Anzahl an Epochen wurde nicht beobachtet. Der Loss schwankt dann nur noch, weil das Modell aufgrund der begrenzenten Komplexität, der Layer, die Zielfunktion nicht genauer an die Daten anpassen kann. Dabei ist kein Overfitting möglich, weil jeder Datenpunkt auf dem Groundtruth liegt und beim Lernen letztendlich versucht wird, eine Funktion zu finden, die durch alle Datenpunkte verläuft. Der vor allem begrenzende Faktor für die Fehlerreduktion auf Test- und Trainingsdaten ist die Anzahl der zur Verfügung gestellten Daten zum Lernen, um die Kurve genau abzubilden (Test/Trainings Loss von ca. 0,01 bei 400 Datensätzen). Bei den verrauschten Daten wurde das beste Ergebnis bei 200 Epochen erzielt, darüber hinaus ist der Loss beim Training wieder angestiegen der zumindest nicht besser geworden. Das Overfitting bei den genutzten 700 Epochen beim dargestellten Beispiel zeigt, dass der Testfehler wieder deutlich ansteigt, wenn eine zu genaue Anpassung an den Trainingsdaten erfolgt. Zusammengefasst, auf 100 Datensätze ließ sich der Loss ohne Rauschen beim Training auf etwa 0,03 und 0,06 beim Testen reduzieren, mit Rauschen auf etwa 0,03 beim Training und 0,13 beim Testen.
+            </p>
+          </div>
+      </section>
+      <section class="text-center container text-bg-secondary mt-1 p-2">       
+          <h3 class="fw-light">Dokumentation</h3>
+          <div class="text-start mx-5">
+            <h5>Technisch</h5>
+            <p class="text-break text-start">
+              Während diese HTML-Seite nur die Ergebnisse und die trainierten Modelle veranschaulicht, wurde zum Training eine weitere Seite verwendet, auf dessen Ergebnisse die Darstellungsseite mittels des JSON-Files zugreift. Beim Training, wurde zusätzlich die Performance beim Training überwacht. Auf der Trainingsseite wurden einstellbar gemacht: Lernrate, Batchgröße, Epochenanzahl, Rauschen ja/nein, Datensatzgröße, Zufallsdaten oder gespeicherte Daten verwenden.
+            </p>
+            <ul>
+              <li>
+                <span class="fw-bold">TensorFlow Visor & Surface tfjs-vis 1.5.1</span> wird eingesetzt zur Darstellung der Diagramme.
+              </li>
+              <li>
+                <span class="fw-bold">TensorFlow v2.0.0</span> wird eingesetzt für das Trainieren der Modelle.
+              </li>
+              <li>
+                <span class="fw-bold">Bootstrap (5.3.8)</span> wird eingesetzt für die Gestaltung der Web-UI.
+              </li>
+              <li>
+                <span class="fw-bold">Visual Studio Code (1.118.1)</span> diente der Erstellung der Webseite.
+              </li>
+            </ul>
+            <h5>Fachlich</h5>
+            <p>
+              Die fachliche Auseinandersetzung mit der Aufgabe „Regression mit FFNN“ wird visuell mit einem einfachen, unaufgeregten Webdesign dargestellt werden. Für die Gestaltung und Einbindung wurde auf die verfügbare 
+              <a class="text-dark fw-bold" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Dokumentation von Bootstrap</a> zurückgegriffen.
+            </p>
+            <p>
+              Für die Gestaltung der Grafiken, wurde 
+              <a class="text-dark fw-bold" href="https://js.tensorflow.org/api_vis/1.5.1/#render.barchart">die offizielle Dokumentation von tfjs-vis</a> verwendet.
+            </p>
+            <p>
+              Für die Einbindung und das Verständnis von TensorFlow.js, diente 
+               <a class="text-dark fw-bold" href="https://js.tensorflow.org/api_vis/1.5.1/#render.barchart">das „Making predictions from 2d data“ Tutorial</a> und 
+               <a class="text-dark fw-bold" href="https://js.tensorflow.org/api/latest/">die TensorFlow API</a>. 
+            </p>
+            <p>
+              Eine Auffrischung der Javascript-Kenntnisse erfolgte über 
+              <a class="text-dark fw-bold" href="https://www.w3schools.com/js/default.asp">W3Schools</a>.
+            </p>
+            <p>
+              Für das Verrauschen der Daten wurde der Code von Jóhann Þórir Jóhannsson 
+              <a class="text-dark fw-bold" href="https://stackoverflow.com/questions/25582882/javascript-math-random-normal-distribution-gaussian-bell-curve">der Code von Jóhann Þórir Jóhannsson</a>  umgesetzt.             </p>
+            <p>
+              Für die Zufallszahlen wurde die Math.random()-Funktion von Javascript verwendet. Um Nebeneffekte an den Intervallgrenzen zu vermeiden, wurden die Zufallszahlen für ein größeres Intervall erzeugt. Wobei dann nur die Werten genommen wurde, die im Zielintervall lagen. 
+            </p>
+            <p>
+              Trotz der vielen Beispiele sollte wenig HTML-Code erzeugt werden, sodass die Anwendung des Stylings und des Layouts auf wenige Template-Elemente beschränkt ist. Das Erstellen und gestallten der HTML-Elemente erfolgte folglich hauptsächlich über Javascript.
+            </p>
+            <p>
+              Abweichen zum Tutorial wurden zur Darstellung der Diagramme immer die original X-Werte der Inputs verwendet. Da durch die Umwandlung der Koordinaten in Tensoren mit Normalisierung und der anschließenden Rückwandlung, leicht veränderte x-Werte entstehen. Diese sorgen sonst bei der Gegenüberstellung von Originaldatenpunkten und Vorhersage-Punkten zu einer wahrnehmbaren Verschiebung zueinander auf der x-Achse. Die erwähnte Normalisierung der Daten wurde zudem nur auf die Inputs angewendet. 
+            </p>
+          </div>
+      </section>
+      <script src="sketch.js" type="text/javascript"></script>    
+    </main>
+  </body>
+  <footer>><div></div></footer>
+</html>
