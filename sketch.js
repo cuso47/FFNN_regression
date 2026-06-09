@@ -53,7 +53,7 @@ function drawDiagrams(data){
         document.getElementById("dataClean")
     )
     document.getElementById("dataCleanTitel").innerText = 
-        "100 Datensätze ohne Verauschen";
+        "100 Datensätze ohne Rauschen";
     document.getElementById("dataCleanHeadline").innerHTML = 
         "<h5>Trainings- und Testdatensätze</h5>";
 
@@ -66,7 +66,7 @@ function drawDiagrams(data){
         document.getElementById("dataNoise")
     )
     document.getElementById("dataNoiseTitel").innerText = 
-        "100 Datensätze mit Verauschen";
+        "100 Datensätze mit Rauschen";
     document.getElementById("dataNoiseHeadline").innerHTML = 
         "<h5>Trainings- und Testdatensätze</h5>";
 
